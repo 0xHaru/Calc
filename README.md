@@ -1,4 +1,6 @@
-An interpreter for arithmetic expressions that aims to provide a simple example of recursive descent parsing.
+## Calc
+
+An interpreter for arithmetic expressions that aims to provide a simple example of recursive descent parsing
 
 ### Example
 
