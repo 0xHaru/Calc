@@ -26,6 +26,6 @@ Press CTRL + D to quit
 
 ```
 git clone https://github.com/0xHaru/Calc.git
-cd calc
+cd Calc
 make run
 ```
