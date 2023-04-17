@@ -25,7 +25,7 @@ Press CTRL + D to quit
 ### Installation and Usage
 
 ```
-git clone https://github.com/0xHaru/calc.git
+git clone https://github.com/0xHaru/Calc.git
 cd calc
 make run
 ```
