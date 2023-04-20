@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ast_ import ASTNode, BinaryExpr, Literal, UnaryExpr
+from ast_ import ASTNode, BinaryExpr, Number, UnaryExpr
 from token_ import Token, TokenType
 
 
@@ -50,7 +50,7 @@ class Parser:
         expr = self.term()
 
         while not self.is_at_end() and self.match(TokenType.PLUS, TokenType.MINUS):
-            operator = self.advance()  # Current token
+            operator = self.advance()
             right = self.term()
             expr = BinaryExpr(operator, left=expr, right=right)
 
@@ -61,7 +61,7 @@ class Parser:
         expr = self.factor()
 
         while not self.is_at_end() and self.match(TokenType.STAR, TokenType.SLASH):
-            operator = self.advance()  # Current token
+            operator = self.advance()
             right = self.factor()
             expr = BinaryExpr(operator, left=expr, right=right)
 
@@ -70,7 +70,7 @@ class Parser:
     # factor ::= ( "+" | "-" ) factor | primary
     def factor(self) -> ASTNode:
         if self.match(TokenType.PLUS, TokenType.MINUS):
-            operator = self.advance()  # Current token
+            operator = self.advance()
             right = self.factor()
             return UnaryExpr(operator, right=right)
 
@@ -79,8 +79,8 @@ class Parser:
     # primary ::= number | "(" expression ")"
     def primary(self) -> ASTNode:
         if self.match(TokenType.NUMBER):
-            current_token = self.advance()
-            return Literal(value=float(current_token.literal))
+            number = self.advance()
+            return Number(value=float(number.literal))
 
         if self.match(TokenType.L_PAREN):
             self.advance()  # Consume L_PAREN

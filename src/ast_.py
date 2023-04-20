@@ -49,7 +49,7 @@ class UnaryExpr(ASTNode):
                 raise Exception("Invalid token type")
 
 
-class Literal(ASTNode):
+class Number(ASTNode):
     def __init__(self, value: float) -> None:
         self.value = value
 
