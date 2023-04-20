@@ -12,7 +12,8 @@ class SyntaxError(Exception):
 # Grammar:
 # expression ::= term ( ("+" | "-") term )*
 # term       ::= factor ( ("*" | "/") factor )*
-# factor     ::= ( "+" | "-" ) factor | primary
+# factor     ::= ( "+" | "-" ) factor | power
+# power      ::= primary "^" factor | primary
 # primary    ::= number | "(" expression ")"
 class Parser:
     def __init__(self, tokens: list[Token]) -> None:
@@ -67,14 +68,25 @@ class Parser:
 
         return expr
 
-    # factor ::= ( "+" | "-" ) factor | primary
+    # factor ::= ( "+" | "-" ) factor | power
     def factor(self) -> ASTNode:
         if self.match(TokenType.PLUS, TokenType.MINUS):
             operator = self.advance()
             right = self.factor()
             return UnaryExpr(operator, right=right)
 
-        return self.primary()
+        return self.power()
+
+    # power ::= primary "^" factor | primary
+    def power(self) -> ASTNode:
+        expr = self.primary()
+
+        if self.match(TokenType.CARET):
+            operator = self.advance()
+            right = self.factor()
+            expr = BinaryExpr(operator, left=expr, right=right)
+
+        return expr
 
     # primary ::= number | "(" expression ")"
     def primary(self) -> ASTNode:

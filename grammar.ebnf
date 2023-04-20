@@ -1,6 +1,7 @@
 expression ::= term ( ("+" | "-") term )*
 term       ::= factor ( ("*" | "/") factor )*
-factor     ::= ( "+" | "-" ) factor | primary
+factor     ::= ( "+" | "-" ) factor | power
+power      ::= primary "^" factor | primary
 primary    ::= number | "(" expression ")"
 
 number     ::= "0" ( "." digit+ )? | ("1" ... "9")+ ( "." digit+ )?

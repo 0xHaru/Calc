@@ -8,10 +8,12 @@ class TokenType(Enum):
     MINUS = 3
     STAR = 4
     SLASH = 5
-    L_PAREN = 6
-    R_PAREN = 7
+    CARET = 6
 
-    EOL = 8
+    L_PAREN = 7
+    R_PAREN = 8
+
+    EOL = 9
 
 
 class Token:

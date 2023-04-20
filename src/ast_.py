@@ -27,6 +27,8 @@ class BinaryExpr(ASTNode):
                 return self.left.eval() * self.right.eval()
             case TokenType.SLASH:
                 return self.left.eval() / self.right.eval()
+            case TokenType.CARET:
+                return self.left.eval() ** self.right.eval()
             case _:
                 raise Exception("Invalid token type")
 

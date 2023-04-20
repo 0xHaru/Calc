@@ -61,6 +61,8 @@ class Lexer:
                 self.add_token(TokenType.STAR, literal)
             case "/":
                 self.add_token(TokenType.SLASH, literal)
+            case "^":
+                self.add_token(TokenType.CARET, literal)
             case "(":
                 self.add_token(TokenType.L_PAREN, literal)
             case ")":
