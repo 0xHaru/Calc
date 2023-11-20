@@ -1,6 +1,7 @@
 ## Calc
 
-An interpreter for arithmetic expressions that aims to provide a simple example of recursive descent parsing
+An interpreter for arithmetic expressions that aims to provide a
+simple example of recursive descent parsing
 
 ### Example
 
@@ -11,6 +12,9 @@ Press CTRL + D to quit
 14.0
 
 > (2 - 3) * 4
+-4.0
+
+> -2 ^ 2
 -4.0
 
 > 2 ^ 2 ^ 3
