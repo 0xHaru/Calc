@@ -1,7 +1,7 @@
 ## Calc
 
 An interpreter for arithmetic expressions that aims to provide a
-simple example of recursive descent parsing
+simple example of recursive descent parsing.
 
 ### Example
 
@@ -32,7 +32,7 @@ Press CTRL + D to quit
 -   Linux
 -   Python 3.10+
 
-### Installation and Usage
+### Installation and usage
 
 ```
 git clone https://github.com/0xHaru/Calc.git
